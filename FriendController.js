@@ -467,7 +467,8 @@ $scope.friends = [];
 
 $scope.toSort="name";
 
-$scope.myOptions=["name", "current_location", "status", "friend_count"]
+$scope.myOptions=[{key:"Name", value:"name"}, {key: "Location", value:"current_location.name"}, {key: "Status", value:"status"}, {key:"Friends", value:"friend_count"}
+];
 
 });
 

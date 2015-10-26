@@ -17,27 +17,28 @@
         <input class="form-control" placeholder="Search Name" ng-model="searchTerm.name">
         <input class="form-control" placeholder="Search Location" ng-model="searchTerm.current_location.name">
         
-
-        <select class="input-medium" ng-model="toSort">
+<!--This was the way to make a drop down without usin an array-->
+        <!--<select class="input-medium" ng-model="toSort">
           <option value="name">Name</option>
           <option value="friend_count">#Friends</option>
           <option value="current_location.city">City</option>
           <option value="current_location.state">State</option>
           <option value="current_location.country">Country</option>
-        </select>
+        </select>-->
 
-        <select class="input-medium" ng-model="order">
+        <select class="input-medium" ng-model="whichWay">
           <option value="true">Descending</option>
           <option value="">Ascending</option>
         </select>
         
-        <select class="input-medium" ng-model="selectedOption" ng-options="option for option in myOptions">
+        <select class="input-medium" ng-model="selectedOption" ng-options="option.value as option.key for option in myOptions">
+          <option value="">Sort by Category</option>
         </select>
 
       </div>
     </form>
 
-    <ul ng-repeat="friend in friends | filter : searchTerm | orderBy: selectedOption : order">
+    <ul ng-repeat="friend in friends | filter : searchTerm | orderBy: selectedOption : whichWay">
       <li class='friend'>
         <img class="profile-pic" src="{{friend.pic_square}}">
 
